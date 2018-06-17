@@ -48,3 +48,9 @@ input{
 button{
   margin-top: 1rem;
 } 
+.critere{
+  display: none;
+}
+span{
+  color: red;
+}

@@ -1,0 +1,101 @@
+
+//script qui recupere le message get de l'url ou il se lance
+//et avec le alert on peut afficher $_GET['msg'] qui affichera
+//le message contenue dans msg.
+//probleme il lance alert quoi qu'il même si le get n'est pas définie
+
+var $_GET = {};
+
+document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+    function decode(s) {
+        return decodeURIComponent(s.split("+").join(" "));
+    }
+
+    $_GET[decode(arguments[1])] = decode(arguments[2]);
+});
+
+/*alert($_GET["message"]);*/
+
+//function qui à la sélection d'une option affiche uniquement
+//la valeur de l'option et cache le reste, ex: si l'option est action
+//ça va afficher la div avec la class action et cacher les autres div 
+$('.typ').change(function(){
+	var select = $(this).val();
+	$('.col-md-4').hide();
+	$('div.'+select).show();
+
+});
+	
+
+	/*$('.ajax').click(function(){
+			var type = $("input[name=type]").val();
+			var country = $("input[name=country] ").val();
+			
+			$.ajax({
+				type: 'POST',
+				url:"ajaxResult.php",
+				data: {type:type, country:country},
+				success: function(result){
+
+					$('.result').html(result);
+				}
+			});
+			return false;
+		})*/
+		/*function qui se lance au click, puis récupère les 
+		valeur des input et les envoie par ajax sur la page qui
+		va afficher les requêtes selon les données de l'utilisateur
+		*/
+/*$('.ajax2').click(function(){
+			var type = $(".type").val();
+			var country = $(".country").val();
+			alert(type+' '+country);
+			$.ajax({
+				type: 'POST',
+				url:"ajaxResult.php",
+				data: {type:type, country:country},
+				success: function(result){
+
+					$('.result').html(result);
+				}
+			});
+			return false;
+		})*/
+
+/*$('.subMovie').click(function(){
+			var title = $("input[name=title]").val();
+			var synopsis = $("input[name=synopsis]").val();synopsis
+			var type = $("input[name=type]").val();
+			var country = $("input[name=country] ").val();
+			var image = $("input[name=image] ").val();
+			alert(title+synopsis+type+country+image);
+
+			$.ajax({
+				type: 'POST',
+				url:"submitMovie.php",
+				data: {title:title, synopsis:synopsis, type:type, country:country, image:image },
+				success: function(result){
+
+					$('.result').html(result);
+				}
+			});
+			return false;
+		})*/
+	
+	/*$('#submit_form').click(function(){
+			
+
+			$.ajax({
+				url:"submitMovie.php",
+				method: 'POST',
+				data: new FormData(this),
+				contentType:false,
+				processData:false,
+				success: function(data){
+
+					
+				}
+
+			});
+			return false;
+		})*/

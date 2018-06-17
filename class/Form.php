@@ -34,13 +34,13 @@ class Form{
 
 	// pour creer un input avec le name qu'on veut en parametre, et la valeur par default qui est la $data
 	public function input($text,$name,$type){
-		return $this->surround('<input type="text" name="'.$name.'" value="'.$this->getValue($name).'" >  ');
+		return $this->surround('<input type="text" name="'.$name.'"  >  ');
 
 	}
 	//creer bouton submit
-	 public function submit()
+	 public function submit($class ='')
 	{
-		return $this->surround('<button type="submit">Envoyer</button>');
+		return $this->surround('<button class = "'.$class.'"  type="submit">Envoyer</button>');
 	}
 
 

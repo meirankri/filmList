@@ -10,6 +10,7 @@ class ShowResult
 	
 	static function show($query)
 	{
+
 		while ($data = $query->fetch(PDO::FETCH_ASSOC)) { ?>
               
             <div class="col-md-4">
@@ -21,12 +22,15 @@ class ShowResult
                     <img class="img-fluid" alt="" src="./img/<?php echo ($data['image']) ?>" >
                  </p>
                  <strong>Synopsis:</strong>
-                  <p class="card-text"><?php echo $data['synopsis']; ?></p>
+                  <p class="card-text "><?php echo $data['synopsis']; ?></p>
+                  <strong>Genre:</strong>
+                  <p class=""><?php echo $data['type']; ?></p>
+
 
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="delete.php?id=<?php echo $data['id']?>">delete</a></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" class="delete btn btn-sm btn-outline-secondary"><a href="delete.php?id=<?php echo $data['id']?>">delete</a></button>
+                      
                     </div>
                     
                   </div>

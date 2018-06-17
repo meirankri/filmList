@@ -5,6 +5,7 @@ Autoloader::register();
 $db = App::getDatabase();
 require_once 'header.php';
 require_once 'descriptionSite.php';
+$_GET['message'] = null;
 
 ?>
 
@@ -19,6 +20,7 @@ require_once 'descriptionSite.php';
           <div class="row">
 
             <?php 
+            //requête qui va chercher des films et les afficher de façon aléatoire.
             $query = $db->query("SELECT * FROM film ORDER BY RAND()");
             $show = ShowResult::show($query);
               ?>
@@ -27,4 +29,6 @@ require_once 'descriptionSite.php';
       </div>
 
     </main>
-<?php require_once 'footer.php'; ?>
+<?php 
+
+require_once 'footer.php'; ?>

@@ -32,21 +32,7 @@ class Database
         return $this->pdo->lastInsertId();
     }
 
-    private function lastId()
-    {
-       $req = $this->query("SELECT titre,MAX(id) AS max_id FROM cours ");
-        while ($row = $req->fetch()) {
-            
-            if ($row['max_id']){
-            $lastId = $row['max_id']; 
-            return $lastId;
-            }else{
-                return rand();
-            }
-        
-        }
-    }
-
+    
     public function uploadPhoto()
     {
         $lastId = $this->getLastInsertId();
